@@ -13,8 +13,18 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/", (req, res) => {
-  res.json(products);
+// router.get("/", (req, res) => {
+//   res.json(products);
+// });
+
+router.get("/", async (req, res) => {
+  try {
+    const products = await Product.findAll(); // Retrieve all products from the database
+    res.json(products); // Return the data as JSON
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 module.exports = router;

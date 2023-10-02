@@ -21,16 +21,26 @@ const Product = db.define(
     },
     discount: {
       type: DataTypes.INTEGER,
+      allowNull: true,
     },
     price: {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: "9999999",
     },
-    product_image: {
+    product_image_1: {
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: "",
+    },
+    product_image_2: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+
+    type: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   },
   {}
