@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router(); // Create an instance of the Express Router
 
 const Product = require("../models/product-models.js");
-const products = require("../products.json");
 
 router.post("/", async (req, res) => {
   try {
