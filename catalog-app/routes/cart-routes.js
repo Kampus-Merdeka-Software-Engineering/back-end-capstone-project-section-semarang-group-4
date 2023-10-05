@@ -5,7 +5,7 @@ const Cart_item = require("../models/cart-models.js");
 const Product = require("../models/product-models.js");
 
 //test by "{"productId": 2}"
-router.post("/add", async (req, res) => {
+router.post("/", async (req, res) => {
   const { productId } = req.body;
 
   try {
