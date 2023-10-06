@@ -7,7 +7,7 @@ const products = require("../products.json");
 // Routes for the RESTful API
 // GET all products
 router.get("/", (req, res) => {
-  res.json(products);
+  res.status(200).json(products);
 });
 
 // GET a specific product by ID
@@ -19,7 +19,7 @@ router.get("/:id", (req, res) => {
     return res.status(404).json({ message: "Product not found" });
   }
 
-  res.json(product);
+  res.status(200).json(product);
 });
 
 // POST to create a new product
@@ -45,7 +45,7 @@ router.put("/:id", (req, res) => {
 
   product.name = req.body.name;
   // Update other properties as needed
-  res.json(product);
+  res.status(200).json(product);
 });
 
 // DELETE a product by ID

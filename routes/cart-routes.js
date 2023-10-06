@@ -31,7 +31,6 @@ router.post("/", async (req, res) => {
       })
         .then((product) => {
           if (product) {
-            console.log("Product found.");
             Cart_item.create({
               itemID: productId,
               itemName: product.product_name,
@@ -41,18 +40,15 @@ router.post("/", async (req, res) => {
             });
           } else {
             // No product found with the specified itemId
-            console.log("Product not found.");
           }
         })
         .catch((error) => {
           // Handle errors
-          console.error("Error finding product by itemId:", error);
         });
     }
 
     res.status(200).json({ message: "Item added to cart" });
   } catch (error) {
-    console.error("Error adding item to cart:", error);
     res.status(500).json({ message: "Error adding item to cart" });
   }
 });
@@ -60,9 +56,8 @@ router.post("/", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const cart_item = await Cart_item.findAll(); // Retrieve all products from the database
-    res.json(cart_item); // Return the data as JSON
+    res.status(200).json(cart_item); // Return the data as JSON
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -84,7 +79,6 @@ router.delete("/:itemId", async (req, res) => {
       res.status(404).json({ message: "Item not found in cart" });
     }
   } catch (error) {
-    console.error("Error deleting item from cart:", error);
     res.status(500).json({ message: "Error deleting item from cart" });
   }
 });
