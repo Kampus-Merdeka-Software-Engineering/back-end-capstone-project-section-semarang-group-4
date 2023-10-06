@@ -1,9 +1,10 @@
 const { error } = require("console");
 const { Sequelize } = require("sequelize");
 
-const db = new Sequelize("capstone_revou", "root", "rootroot", {
-  host: "localhost",
+const db = new Sequelize("railway", "root", "rNRY3hv1211M32lvOHe0", {
+  host: "containers-us-west-184.railway.app",
   dialect: "mysql",
+  port: 7098,
 });
 
 db.authenticate()
