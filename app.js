@@ -36,7 +36,7 @@ app.post('/contact', (req, res) => {
   // Define email content
   const mailOptions = {
     from: "devaro21@hotmail.com", // Sender's email address
-    to: 'dbrahmansyah@gmail.com', // Receiver's email address
+    to: 'claudiajovinca@gmail.com', // Receiver's email address
     subject: 'New Contact Form Submission',
     text: `
     Pesan baru dari ${name}
