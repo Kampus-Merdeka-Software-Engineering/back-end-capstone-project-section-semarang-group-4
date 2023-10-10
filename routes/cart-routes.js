@@ -68,7 +68,7 @@ router.delete("/:itemId", async (req, res) => {
   try {
     // Find and delete the cart item by its ID
     const deletedCartItem = await Cart_item.destroy({
-      where: { id: itemIdToDelete },
+      where: { itemID: itemIdToDelete },
     });
 
     if (deletedCartItem) {
